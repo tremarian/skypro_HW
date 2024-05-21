@@ -1,7 +1,10 @@
 def square():
-     a = float(input('Введите сторону квадрата: '))
-     s = a*a
+    a = float(input('Введите сторону квадрата: '))
+    
+    if a != int(a):
+        a = int(a) + 1
 
-     print(f"Площадь квадрата: {s}")
+    s = a*a
+    print(f"Площадь квадрата: {s}")
 
 square()
