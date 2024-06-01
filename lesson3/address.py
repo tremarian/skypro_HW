@@ -6,3 +6,6 @@ class Address:
         self.street = street
         self.house = house
         self.flat = flat
+
+    def printAddress(self):
+        print(self.index, self.city, self.street, self.house, self.flat,  end="")

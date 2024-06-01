@@ -1,8 +1,17 @@
 from address import Address
 from mailing import Mailing
 
-mike = Address(1, 2, 3, 4, 5)
-bob = Address(1, 2, 3, 4, 5)
-new = Mailing(mike, bob, 1, 1 )
+to = Address(644014, 'Омск', 'ул. 1 Мая', 'д. 2', 'кв. 1')
+fr = Address(183036, 'Мурманск', 'ул. Кильдинская', 'д. 4', 'кв. 15')
 
-print(new)
+
+shiping = Mailing(to, fr, 320, '№1')
+
+shiping.addFrom(fr)
+shiping.addTo(to)
+
+print(f'Отправление {shiping.track} из ', end="")
+shiping.getFrom().printAddress()
+print(' - ', end="")
+shiping.getTo().printAddress()
+print(f'. Стоимость {shiping.cost} рублей')
