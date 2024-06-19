@@ -1,9 +1,11 @@
 import pytest
 from string_utils import StringUtils
 
-@pytest.mark.parametrize( 'str, result', [('skypro', 'Skypro')] )
+exemplar = StringUtils()
 
-def capitilize_tests(str, result): 
-    string = StringUtils()
-    res = string.capitilize(str) 
-    assert res == result 
+@pytest.mark.parametrize( 'input_str, result', [
+    ('skypro', 'Skypro')
+    ])
+
+def capitilize_tests(input_str, result):
+    assert exemplar.capitilize(input_str) == result 
