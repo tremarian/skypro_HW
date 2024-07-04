@@ -5,11 +5,11 @@ class Smartphone:
         self.model = model
         self.number = number
 
-    def printBrand (self):
+    def printBrand(self):
         print(self.brand)
-    
-    def printModel (self):
+
+    def printModel(self):
         print(self.model)
-    
-    def printNumber (self):
+
+    def printNumber(self):
         print(self.number)
