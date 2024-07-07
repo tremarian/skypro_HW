@@ -41,7 +41,7 @@ button = driver.find_element(By.CSS_SELECTOR, '[type="submit"]')
 button.click()
 
 
-@pytest.mark.parametrize('input_str, result', [
+@pytest.mark.parametrize('locator, result', [
     ('#first-name', 'rgba(15, 81, 50, 1)'),
     ('#last-name', 'rgba(15, 81, 50, 1)'),
     ('#address', 'rgba(15, 81, 50, 1)'),

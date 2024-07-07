@@ -16,15 +16,19 @@ delay = driver.find_element(By.CSS_SELECTOR, '#delay')
 delay.send_keys('45')
 
 seven = driver.find_element(By.CSS_SELECTOR,'.keys span:nth-child(1)')
-seven.click()
-
 plus = driver.find_element(By.CSS_SELECTOR,'.keys span:nth-child(4)')
-plus.click()
-
 eight = driver.find_element(By.CSS_SELECTOR,'.keys span:nth-child(2)')
-eight.click()
-
 equal = driver.find_element(By.CSS_SELECTOR,'.keys span:nth-child(15)')
-equal.click()
 
-assert driver.find_element(By.CSS_SELECTOR,'.screen').text() == '15'
+@pytest.mark.parametrize('first_summand, second_summand, result', [
+    (seven, eight, 15)
+    ])
+def test_sum(first_summand, second_summand, summ, result):
+    first_summand.click()
+    plus.click
+    second_summand.click()
+    equal.click()
+    summ = driver.find_element(By.CSS_SELECTOR,'.screen').text()
+    assert  summ == result
+
+driver.quit()
