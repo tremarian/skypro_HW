@@ -8,4 +8,6 @@ class Address:
         self.flat = flat
 
     def printAddress(self):
-        print(self.index, self.city, self.street, self.house, self.flat,  end="")
+        print(
+            self.index, self.city, self.street, self.house, self.flat,  end=""
+            )

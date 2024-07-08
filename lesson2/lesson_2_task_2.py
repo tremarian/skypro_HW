@@ -10,4 +10,5 @@ def get_year():
     print(f"{year} : ", end='')
     is_year_leap(year)
 
+
 get_year()

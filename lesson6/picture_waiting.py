@@ -1,4 +1,3 @@
-from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
@@ -7,11 +6,16 @@ from selenium.webdriver.common.by import By
 driver = webdriver.Chrome(
     service=ChromeService(ChromeDriverManager().install())
     )
-
+driver.implicitly_wait(20)
 driver.maximize_window()
-driver.get("https://the-internet.herokuapp.com/entry_ad")
-sleep(5)
-button = driver.find_element(By.CSS_SELECTOR, '.modal-footer p')
-button.click()
+driver.get(
+    "https://bonigarcia.dev/selenium-webdriver-java/loading-images.html"
+           )
 
-sleep(10)
+driver.implicitly_wait(20)
+driver.find_element(By.CSS_SELECTOR, '.lead')
+src = driver.find_element(By.CSS_SELECTOR, '#award').get_attribute('src')
+
+print(src)
+
+driver.quit()

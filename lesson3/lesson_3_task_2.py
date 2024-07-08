@@ -9,5 +9,7 @@ catalog = [
     ]
 
 
-for y in range (0,5):
-    print(f'<{catalog[y].brand}> - <{catalog[y].model}>. <{catalog[y].number}>')
+for y in range(0, 5):
+    print(
+        f'<{catalog[y].brand}> - <{catalog[y].model}>. <{catalog[y].number}>'
+        )

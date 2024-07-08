@@ -1,6 +1,7 @@
 def func_params(num):
     print(num, end='')
 
+
 func_params(8)
 func_params(8)
 func_params(0)
