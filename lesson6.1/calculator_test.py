@@ -23,9 +23,9 @@ equal = driver.find_element(By.CSS_SELECTOR,'.keys span:nth-child(15)')
 @pytest.mark.parametrize('first_summand, second_summand, result', [
     (seven, eight, 15)
     ])
-def test_sum(first_summand, second_summand, summ, result):
+def test_sum(first_summand, second_summand, result):
     first_summand.click()
-    plus.click
+    plus.click()
     second_summand.click()
     equal.click()
     summ = driver.find_element(By.CSS_SELECTOR,'.screen').text()
