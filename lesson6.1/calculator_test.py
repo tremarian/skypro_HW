@@ -3,32 +3,22 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+from configurations import *
 
-driver = webdriver.Chrome(
-    service=ChromeService(ChromeDriverManager().install())
-    )
+def test_fill_form(chrome_browser):
+    chrome_browser.get(url_2)
+    chrome_browser.implicitly_wait(50)
+    delay = chrome_browser.find_element(By.CSS_SELECTOR, '#delay')
+    delay.send_keys('45')
 
-driver.get('https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html')
+    seven = chrome_browser.find_element(By.CSS_SELECTOR,'.keys span:nth-child(1)')
+    plus = chrome_browser.find_element(By.CSS_SELECTOR,'.keys span:nth-child(4)')
+    eight = chrome_browser.find_element(By.CSS_SELECTOR,'.keys span:nth-child(2)')
+    equal = chrome_browser.find_element(By.CSS_SELECTOR,'.keys span:nth-child(15)')
 
-driver.implicitly_wait(50)
-
-delay = driver.find_element(By.CSS_SELECTOR, '#delay')
-delay.send_keys('45')
-
-seven = driver.find_element(By.CSS_SELECTOR,'.keys span:nth-child(1)')
-plus = driver.find_element(By.CSS_SELECTOR,'.keys span:nth-child(4)')
-eight = driver.find_element(By.CSS_SELECTOR,'.keys span:nth-child(2)')
-equal = driver.find_element(By.CSS_SELECTOR,'.keys span:nth-child(15)')
-
-@pytest.mark.parametrize('first_summand, second_summand, result', [
-    (seven, eight, 15)
-    ])
-def test_sum(first_summand, second_summand, result):
-    first_summand.click()
+    seven.click()
     plus.click()
-    second_summand.click()
+    eight.click()
     equal.click()
-    summ = driver.find_element(By.CSS_SELECTOR,'.screen').text()
-    assert  summ == result
+    assert chrome_browser.find_element(By.CSS_SELECTOR,'.screen').text() == 15
 
-driver.quit()
