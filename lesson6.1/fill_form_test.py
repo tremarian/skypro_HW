@@ -45,8 +45,7 @@ def test_fill_form(chrome_browser):
         By.CSS_SELECTOR, '[type="submit"]'
         ).click()
 
-
-    assert  chrome_browser.find_element(
+    assert chrome_browser.find_element(
         By.CSS_SELECTOR, '#zip-code'
         ).value_of_css_property("color") == 'rgba(132, 32, 41, 1)'
     field_list = [
@@ -60,7 +59,7 @@ def test_fill_form(chrome_browser):
         '#job-position',
         '#company']
     l = len(field_list)
-    for y in range(0,l):
-        assert  chrome_browser.find_element(
+    for y in range(0, l):
+        assert chrome_browser.find_element(
             By.CSS_SELECTOR, field_list[y]
             ).value_of_css_property("color") == 'rgba(15, 81, 50, 1)'

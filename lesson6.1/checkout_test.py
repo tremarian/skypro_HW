@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 from configurations import *
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
+
 
 def test_checkout(chrome_browser):
     chrome_browser.implicitly_wait(5)
@@ -21,9 +20,9 @@ def test_checkout(chrome_browser):
         'add-to-cart-sauce-labs-bolt-t-shirt',
         'add-to-cart-sauce-labs-onesie']
     l = len(goods)
-    for y in range(0,l):
+    for y in range(0, l):
         chrome_browser.find_element(By.NAME, goods[y]).click()
-    
+
     chrome_browser.find_element(By.CLASS_NAME, 'shopping_cart_link').click()
     chrome_browser.find_element(By.NAME, 'checkout').click()
     name = chrome_browser.find_element(By.NAME, 'firstName')
@@ -39,8 +38,7 @@ def test_checkout(chrome_browser):
     surname.send_keys(postal_code)
 
     chrome_browser.find_element(By.NAME, 'continue').click()
-    total = chrome_browser.find_element(By.CSS_SELECTOR, '.summary_total_label')
+    total = chrome_browser.find_element(
+        By.CSS_SELECTOR, '.summary_total_label'
+        )
     assert total.text == 'Total: $58.29'
-
-
-
