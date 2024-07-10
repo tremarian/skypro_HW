@@ -10,4 +10,10 @@ job = 'QA'
 company = 'SkyPro'
 
 url_2 = 'https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html'
+
 url_3 = 'https://www.saucedemo.com/'
+login = 'standard_user'
+user_password = 'secret_sauce'
+f_name = 'Полина'
+l_name = 'Шаимова'
+postal_code = '454000'

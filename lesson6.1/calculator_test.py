@@ -1,14 +1,12 @@
-import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from configurations import *
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 def test_fill_form(chrome_browser):
     chrome_browser.get(url_2)
-    chrome_browser.implicitly_wait(50)
     delay = chrome_browser.find_element(By.CSS_SELECTOR, '#delay')
+    delay.clear()
     delay.send_keys('45')
 
     seven = chrome_browser.find_element(By.CSS_SELECTOR,'.keys span:nth-child(1)')
@@ -20,5 +18,10 @@ def test_fill_form(chrome_browser):
     plus.click()
     eight.click()
     equal.click()
-    assert chrome_browser.find_element(By.CSS_SELECTOR,'.screen').text() == 15
+
+    WebDriverWait(chrome_browser, "48").until(
+    EC.text_to_be_present_in_element((By.CSS_SELECTOR, "div.screen"), "15"))
+    assert chrome_browser.find_element(By.CSS_SELECTOR,'.screen').text == '15'
+
+
 
