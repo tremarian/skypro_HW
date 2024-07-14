@@ -5,3 +5,4 @@ Lesson 3 — OOP.
 Lesson 4 — Pytest.
 Lesson 5 — automated UI tests.
 Lesson 6 — Selenium Advanced Practices.
+Lesson 7 — PageObject.
