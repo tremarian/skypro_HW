@@ -33,9 +33,9 @@ def test_checkout(chrome_browser):
     surname.click()
     surname.send_keys(f_name)
 
-    surname = chrome_browser.find_element(By.NAME, 'postalCode')
-    surname.click()
-    surname.send_keys(postal_code)
+    postal = chrome_browser.find_element(By.NAME, 'postalCode')
+    postal.click()
+    postal.send_keys(postal_code)
 
     chrome_browser.find_element(By.NAME, 'continue').click()
     total = chrome_browser.find_element(
